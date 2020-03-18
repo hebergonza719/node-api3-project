@@ -8,7 +8,7 @@ server.get('/', (req, res) => {
 
 server.use(express.json());
 
-server.use(helmet());
+// server.use(helmet());
 
 server.use(logger);
 
@@ -22,8 +22,8 @@ server.use('/api/users', userRouter);
 
 function logger(req, res, next) {
   console.log(`${req.method} - Method`);
-  console.log(`${req.params} - URL` );
-  console.log(Date.now());
+  console.log(req.protocol + "://" + req.get('host') + req.url);
+  console.log("Timestamp " + Date.now());
   next();
 };
 
