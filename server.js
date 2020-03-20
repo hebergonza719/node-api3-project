@@ -18,6 +18,12 @@ const userRouter = require('./users/userRouter');
 
 server.use('/api/users', userRouter);
 
+server.get('/', (req, res) => {
+  res.send(`
+    <h1>Node-API3-Project<h1>
+  `);
+});
+
 //custom middleware
 
 function logger(req, res, next) {
